@@ -90,26 +90,28 @@ right ,but in the jupter it would create seperate file so you can reuse anytime 
 it will help to organize the code, and we can use mainly for data loding and plot graphs
 '''
 
-'''
-Pandas Tutorial Start
 
-In cmd Line - type - where python
-there you use cmd - py -3.14 -m pip install pandas
-for eg.C:\Users\devap\AppData\Local\Programs\Python>py -3.14 -m pip install pandas
-then use cmd py -3.14 -m pip install matplotlib
-C:\Users\devap\AppData\Local\Programs\Python\Python314>py -3.14 -m pip install matplotlib
+# Pandas Tutorial Start
+#
+# In cmd Line - type - where python
+# there you use cmd - py -3.14 -m pip install pandas
+# for eg.C:\Users\devap\AppData\Local\Programs\Python>py -3.14 -m pip install pandas
+# then use cmd py -3.14 -m pip install matplotlib
+# C:\Users\devap\AppData\Local\Programs\Python\Python314>py -3.14 -m pip install matplotlib
+#
+#
 
-'''
 
+
+# In jupyter use this code in cell and execute this
+# cell1 - import pandas as pd - check whether you get error or not - ctrl + enter
+# cell2 - df= pd.read_csv(rf"C:\Users\devap\Downloads\Jupyter\data-small\TG_STAID000001.txt",skiprows=20,parse_dates=["    DATE"])
+# //first 20row text no need so skip , and enter the Date and before space as it was in the .txt file then only we get correct output
+# cell3 - df
 
 """
-In jupyter use this code in cell and execute this
-cell1 - import pandas as pd - check whether you get error or not - ctrl + enter
-cell2 - df= pd.read_csv(rf"C:\Users\devap\Downloads\Jupyter\data-small\TG_STAID000001.txt",skiprows=20,parse_dates=["    DATE"]) 
-//first 20row text no need so skip , and enter the Date and before space as it was in the .txt file then only we get correct output
-cell3 - df
+Here after in jupyter folder see jupyter file , there all panda related codes are there.
 """
-
 
 
 
