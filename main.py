@@ -1,7 +1,7 @@
 """
 first create for testing Purpose
 """
-
+from sympy.physics.units import temperature
 
 # from flask import Flask,render_template
 #
@@ -113,5 +113,27 @@ it will help to organize the code, and we can use mainly for data loding and plo
 Here after in jupyter folder see jupyter file , there all panda related codes are there.
 """
 
+"""
+APT that return to wheather temperature Data
+"""
+
+from flask import Flask,render_template
+import pandas as pd
+
+app = Flask("Website")
+@app.route("/")
+def home():
+    return render_template("home.html")
+@app.route("/api/v1/<station>/<date>")
+def About(station,date):
+    filename="data-small/TG_STAID"+ str(station).zfill(6)+".txt"
+    df=pd.read_csv(filename,skiprows=20,parse_dates=['    DATE'])
+    temperature = df.loc[df['    DATE']==date]['   TG'].squeeze() /10
+
+    return {"station":station,
+            "date":date,
+            "template":temperature}
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
