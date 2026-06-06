@@ -144,6 +144,43 @@ Next  Student project there in student_project.py just workout
 then we show the station.txt file to frontend like table format
 """
 
+# from flask import Flask,render_template
+# import pandas as pd
+#
+# app = Flask(__name__)
+#
+#
+# # variable = "hi how are you"
+# staions=pd.read_csv("data-small/stations.txt",skiprows=17)
+# # if you want customized columns go with this step
+#
+# staions = staions[["STAID","STANAME                                 "]]
+#
+#
+#
+# @app.route("/")
+# def home():
+#     # return render_template("home.html",data=variable)
+#     return render_template("home.html", data=staions.to_html())
+# @app.route("/api/v1/<station>/<date>")
+# def About(station,date):
+#     filename="data-small/TG_STAID"+ str(station).zfill(6)+".txt"
+#     df=pd.read_csv(filename,skiprows=20,parse_dates=['    DATE'])
+#     temperature = df.loc[df['    DATE']==date]['   TG'].squeeze() /10
+#     station_name=staions.loc[staions['STAID']==int(station)]["STANAME                                 "].squeeze()
+#     # we get some type error bczs STAID - is numeric come from txt.file
+#     # station is string so we need to convert as int thats it error solved we got the output
+#
+#     return {"station":station,
+#             "station_name":station_name,
+#             "date":date,
+#             "template":temperature}
+# if __name__ == "__main__":
+#     app.run(debug=True)
+
+"""
+URL Endpoints for All Data and Annual Data
+"""
 from flask import Flask,render_template
 import pandas as pd
 
@@ -175,5 +212,24 @@ def About(station,date):
             "station_name":station_name,
             "date":date,
             "template":temperature}
+@app.route("/api/v1/<station>")
+def onestation_alldates(station):
+    filename = "data-small/TG_STAID" + str(station).zfill(6) + ".txt"
+    df = pd.read_csv(filename, skiprows=20, parse_dates=['    DATE'])
+    result= df.to_dict(orient='records')
+    #if we didnt enter orient='records' we get output ,
+    # if you want clear format use this orient record
+    return result
+
+@app.route("/api/v1/yearly/<station>/<year>")
+def onestation_oneyear(station,year):
+    filename = "data-small/TG_STAID" + str(station).zfill(6) + ".txt"
+    df = pd.read_csv(filename, skiprows=20) #here parse date comes like numeric so we romve here
+    df['    DATE']=df['    DATE'].astype(str)
+    result= df[df['    DATE'].str.startswith(str(year))].to_dict(orient='records')
+    return result
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)

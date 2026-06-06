@@ -1,3 +1,19 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Weather Data API</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Weather Data API</h1>-->
+<!--    <p>URL Format :http://127.0.0.1:5000/api/v1/station/date</p>-->
+<!--    <p>Example :http://127.0.0.1:5000/api/v1/10/2000-07-03</p>-->
+<!--&lt;!&ndash;    here after we are going to show the statioin ID and Name to user in frontend &ndash;&gt;-->
+<!--&lt;!&ndash;    <p>{{data}}</p>&ndash;&gt;-->
+<!--    <p>{{data | safe }}</p>-->
+<!--</body>-->
+<!--</html>-->
+<!--Change for one station multiple dates format-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +23,9 @@
 <body>
     <h1>Weather Data API</h1>
     <p>URL Format :http://127.0.0.1:5000/api/v1/station/date</p>
-    <p>Example :http://127.0.0.1:5000/api/v1/10/2000-07-03</p>
-<!--    here after we are going to show the statioin ID and Name to user in frontend -->
-<!--    <p>{{data}}</p>-->
+    <p>Example one station one date :http://127.0.0.1:5000/api/v1/10/2000-07-03</p>
+    <p>Example one station all dates :http://127.0.0.1:5000/api/v1/10</p>
+    <p>Example one station one year :http://127.0.0.1:5000/api/v1/yearly/10/1988</p>
     <p>{{data | safe }}</p>
 </body>
 </html>
