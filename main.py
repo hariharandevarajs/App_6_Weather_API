@@ -1,7 +1,7 @@
 """
 first create for testing Purpose
 """
-from sympy.physics.units import temperature
+# from sympy.physics.units import temperature
 
 # from flask import Flask,render_template
 #
@@ -120,7 +120,7 @@ APT that return to wheather temperature Data
 from flask import Flask,render_template
 import pandas as pd
 
-app = Flask("Website")
+app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -135,5 +135,10 @@ def About(station,date):
             "template":temperature}
 if __name__ == "__main__":
     app.run(debug=True)
+
+"""
+Next  Student project there in student_project.py just workout
+"""
+
 
 
