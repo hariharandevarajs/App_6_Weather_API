@@ -233,3 +233,6 @@ def onestation_oneyear(station,year):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+#Do wine exercise examples in wine.ipynp
